@@ -25,6 +25,14 @@ class kalacakyer(db.Model):
     location = db.Column(db.String(30))
     date = db.Column(db.DateTime)
 
+class kabulet(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(30))
+    countof = db.Column(db.Integer())
+    phonenum = db.Column(db.Integer(), unique=True)
+    location = db.Column(db.String(30))
+    date = db.Column(db.DateTime)
+
 with app.app_context():
     db.create_all()
 
@@ -59,7 +67,42 @@ def yerarayanlar():
     introcursor.row_factory = sql.Row
     introappsel = introcursor.execute(f"SELECT * FROM kalacakyer").fetchall()
     arayansorgu.commit()
-    return render_template('yerarayanlar.html', introappsel = introappsel)
+    apprreq = request.form.get("approvereq")
+
+    if apprreq:
+        apreeq = sql.connect('kalacakyer.db')
+        introcursor = apreeq.cursor()
+        introcursor.row_factory = sql.Row
+        introappsel = introcursor.execute(f"SELECT * FROM kalacakyer WHERE id = {apprreq} ").fetchall()
+        apreeq.commit()
+        #userid = introappsel[0]
+        usernameapp = introappsel[0][1]
+        usercount = introappsel[0][2]
+        userphon = introappsel[0][3]
+        userloc = introappsel[0][4]
+
+        newappr = kabulet(
+                username = usernameapp,
+                countof = usercount,
+                phonenum = userphon,
+                location = userloc,
+                date = datetime.datetime.now(),
+                )
+        db.session.add(newappr)
+        db.session.commit()
+
+        introcursor.execute(f"DELETE FROM kalacakyer WHERE id = {apprreq} ;")
+        apreeq.commit()
+
+        return redirect(url_for("index"))
+
+    ttlcount = []
+    totalcount = introcursor.execute("SELECT countof FROM kabulet").fetchall()
+    for i in totalcount:
+        ttlcount.extend(i)
+    countt = sum(map(int, ttlcount))
+
+    return render_template('yerarayanlar.html', introappsel = introappsel, countt = countt)
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1', debug=True)
