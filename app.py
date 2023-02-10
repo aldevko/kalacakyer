@@ -23,6 +23,7 @@ class kalacakyer(db.Model):
     countof = db.Column(db.Integer())
     phonenum = db.Column(db.Integer(), unique=True)
     location = db.Column(db.String(30))
+    infonote = db.Column(db.String(240))
     date = db.Column(db.DateTime)
 
 class kabulet(db.Model):
@@ -31,6 +32,7 @@ class kabulet(db.Model):
     countof = db.Column(db.Integer())
     phonenum = db.Column(db.Integer(), unique=True)
     location = db.Column(db.String(30))
+    infonote = db.Column(db.String(240))
     date = db.Column(db.DateTime)
 
 with app.app_context():
@@ -46,12 +48,14 @@ def index():
     print(userphone)
     userlocation = request.form.get("userlocation")
     print(userlocation)
+    infonotte = request.form.get("usernote")
     if username and usercnt and userphone and userlocation:
         newuser = kalacakyer(
                 username = username,
                 countof = usercnt,
                 phonenum = userphone,
                 location = userlocation,
+                infonote = infonotte,
                 date = datetime.datetime.now(),
                 )
         db.session.add(newuser)
@@ -80,12 +84,14 @@ def yerarayanlar():
         usercount = introappsel[0][2]
         userphon = introappsel[0][3]
         userloc = introappsel[0][4]
+        usernote = introappsel[0][5]
 
         newappr = kabulet(
                 username = usernameapp,
                 countof = usercount,
                 phonenum = userphon,
                 location = userloc,
+                infonote = usernote,
                 date = datetime.datetime.now(),
                 )
         db.session.add(newappr)

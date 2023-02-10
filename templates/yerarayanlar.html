@@ -44,6 +44,7 @@
                         <th scope="col">Telefon</th>
                         <th scope="col">İl</th>
                         <th scope="col">Talep Tarihi</th>
+                        <th scope="col">Not</th>
                         <th scope="col">Kabul et</th>
                     </tr>
                 </thead>
@@ -56,6 +57,7 @@
                             <td>{{row.phonenum}}</td>
                             <td>{{row.location}}</td>
                             <td>{{row.date}}</td>
+                            <td>{{row.infonote}}</td>
                             <td><input type="submit" style="text-decoration: underline" class="wish_but_view" value="{{row.id}}" name="approvereq"></td>
                         </tr>
                     {% endfor %}
