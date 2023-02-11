@@ -27,8 +27,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Kalacak Yer Lazım</a>
-                <i style="color: red;"> Kaydı Yapılan veya Kalacak Yer Bulan Sayısı: {{ countt }}</i>
+                <a class="navbar-brand" href="#!">Yardım Etmek İsteyenler</a>
                 <a class="btn btn-dark" href="/">Ana Sayfa</a>
             </div>
         </nav>
@@ -40,27 +39,25 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">İsim</th>
-                        <th scope="col">Kaç Kişi</th>
+                        <th scope="col">Yardım Çeşidi</th>
                         <th scope="col">Telefon</th>
-                        <th scope="col">İl</th>
-                        <th scope="col">Talep Tarihi</th>
                         <th scope="col">Not</th>
-                        <th scope="col">112 Kaydı</th>
-                        <th scope="col">Kaydı Yaptıysan/Yardım Ettiysen</th>
+                        <th scope="col">İl</th>
+                        <th scope="col">Tarih</th>
+                        <th scope="col">Yardımı Kabul Et</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for row in introappsels %}
+                    {% for row in helpers %}
                         <tr>
                             <td>{{row.id}}</td>
                             <td>{{row.username}}</td>
-                            <td>{{row.countof}}</td>
+                            <td>{{row.kind}}</td>
                             <td>{{row.phonenum}}</td>
+                            <td>{{row.infonote}}</td>
                             <td>{{row.location}}</td>
                             <td>{{row.date}}</td>
-                            <td>{{row.infonote}}</td>
-                            <td>{{row.emergency}}</td>
-                            <td><input type="submit" style="text-decoration: underline;" class="wish_but_view" value="{{row.id}}" name="approvereq"></td>
+                            <td><input type="submit" style="text-decoration: underline" class="wish_but_view" value="{{row.id}}" name="approvehelp"></td>
                         </tr>
                     {% endfor %}
                 </tbody>

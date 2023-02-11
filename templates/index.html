@@ -1,164 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
-        <link href="css/styles.css" rel="stylesheet" />
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-light bg-dark static-top">
-            <div class="container">
-                <a class="navbar-brand" href="/" style="color: aliceblue;">Kalacak Yer Lazım</a>
-                <a class="btn btn-danger" href="/yerarayanlar">Yer Arayanlar</a>
+<head>
+    <title>Kalacak Yer Lazım</title>
+    <link rel="icon" href="#">
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    .main{
+        width: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(/images/kalacakyerlazim.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+    }
+    
+    .navbar{
+        width: 1200px;
+        height: 75px;
+        margin: auto;
+    }
+    
+    .icon{
+        width: 200px;
+        float: left;
+        height: 70px;
+    }
+    
+    .logo{
+        color: #e79062;
+        font-size: 35px;
+        font-family: Arial;
+        padding-left: 20px;
+        float: left;
+        padding-top: 10px;
+        margin-top: 5px
+    }
+    
+    .menu{
+        width: 400px;
+        float: right;
+        height: 70px;
+    }
+    
+    ul{
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    ul li{
+        list-style: none;
+        margin-left: 62px;
+        margin-top: 27px;
+        font-size: 14px;
+    }
+    
+    ul li a{
+        text-decoration: none;
+        color: #fff;
+        font-family: Arial;
+        font-weight: bold;
+        transition: 0.4s ease-in-out;
+    }
+    
+    ul li a:hover{
+        color: #e79062;
+    }
+    
+    .search{
+        width: 330px;
+        float: left;
+        margin-left: 270px;
+    }
+    
+    .srch{
+        font-family: 'Times New Roman';
+        width: 200px;
+        height: 40px;
+        background: transparent;
+        border: 1px solid #e79062;
+        margin-top: 13px;
+        color: #fff;
+        border-right: none;
+        font-size: 16px;
+        float: left;
+        padding: 10px;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    
+    .btn{
+        width: 100px;
+        height: 40px;
+        background: #afea36 !important;
+        border: 2px solid #e79062;
+        margin-top: 13px;
+        color: #fff;
+        font-size: 15px;
+        border-bottom-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        transition: 0.2s ease;
+        cursor: pointer;
+    }
+    .btn:hover{
+        color: #000;
+    }
+    
+    .btn:focus{
+        outline: none;
+    }
+    
+    .srch:focus{
+        outline: none;
+    }
+    
+    .content{
+        width: 1200px;
+        height: auto;
+        margin: auto;
+        color: #b4b4b4;
+        position: relative;
+    }
+    
+    .content .par{
+        padding-left: 20px;
+        padding-bottom: 25px;
+        font-family: Arial;
+		font-size: large;
+        letter-spacing: 1.2px;
+        line-height: 25px;
+    }
+
+	.content .parr{
+        padding-left: 20px;
+        padding-bottom: 25px;
+        font-family: Arial;
+		font-size: smaller;
+        letter-spacing: 1px;
+        line-height: 15px;
+		color: #e79062;
+    }
+    
+    .content h1{
+        font-family: 'Times New Roman';
+        font-size: 50px;
+        padding-left: 20px;
+        margin-top: 9%;
+        letter-spacing: 2px;
+    }
+    
+    .content .cn{
+        width: 160px;
+        height: 40px;
+        background: #e79062;
+        border: none;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        font-size: 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: .4s ease;
+        
+    }
+    
+    .content .cn a{
+        text-decoration: none;
+        color: #000;
+        transition: .3s ease;
+    }
+    
+    .cn:hover{
+        background-color: #fff;
+    }
+    
+    .content span{
+        color: #e79062;
+        font-size: 65px
+    }
+    
+    .form{
+        width: 250px;
+        height: 400px;
+        background: linear-gradient(to top, rgba(105, 105, 105, 0.8)50%,rgba(105, 105, 105, 0.8)50%);
+        position: absolute;
+        top: -10px;
+        left: 570px;
+        transform: translate(0%,-5%);
+        border-radius: 10px;
+        padding: 25px;
+    }
+    
+    .form h2{
+        width: 220px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #101630 !important;
+        font-size: 18px;
+        background-color: #b4b4b4 !important;
+        border-radius: 10px;
+        margin: 2px;
+        padding: 8px;
+    }
+    
+    .form input{
+        width: 240px;
+        height: 35px;
+        background: transparent;
+        border-bottom: 1px solid #ff7200;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        color: #fff;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-top: 30px;
+        font-family: sans-serif;
+    }
+
+    
+    .form input:focus{
+        outline: none;
+    }
+    
+    ::placeholder{
+        color: #fff;
+        font-family: Arial;
+    }
+    
+    .btnn{
+        width: 240px;
+        height: 40px;
+        background: #b4b4b4 !important;
+        border: none;
+        margin-top: 30px;
+        font-size: 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #101630 !important;
+        transition: 0.4s ease;
+    }
+    .btnn a{
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+    }
+    .form .link{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 17px;
+        padding-top: 20px;
+        text-align: center;
+    }
+    .form .link a{
+        text-decoration: none;
+        color: #e79062;
+    }
+    .liw{
+        padding-top: 15px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    .icons a{
+        text-decoration: none;
+        color: #fff;
+    }
+    .icons ion-icon{
+        color: #fff;
+        font-size: 30px;
+        padding-left: 14px;
+        padding-top: 5px;
+        transition: 0.3s ease;
+    }
+    .icons ion-icon:hover{
+        color: #e79062;
+    }
+    .footer{
+            position: fixed;
+            left: 0;
+            bottom: -10px; 
+            width: 100%;
+            height: 30px;   /* Height of the footer */
+            background-color: #1d2652 !important;
+            color: #e79062;
+            text-align: center;
+        }
+
+	.yenform{
+        width: 250px;
+        height: 400px;
+        background: linear-gradient(to top, rgba(105, 105, 105, 0.8)50%,rgba(105, 105, 105, 0.8)50%);
+        position: absolute;
+        top: -10px;
+        left: 970px;
+        transform: translate(0%,-5%);
+        border-radius: 10px;
+        padding: 25px;
+    }
+    
+    .yenform h2{
+        width: 220px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #101630 !important;
+        font-size: 18px;
+        background-color: #b4b4b4 !important;
+        border-radius: 10px;
+        margin: 2px;
+        padding: 8px;
+    }
+    
+    .yenform input{
+        width: 240px;
+        height: 30px;
+        background: transparent;
+        border-bottom: 1px solid #ff7200;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        color: #fff;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-top: 15px;
+        font-family: sans-serif;
+    }
+
+    
+    .yenform input:focus{
+        outline: none;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Kalacak Yer Lazım</h2>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="text-center text-white">
-							<br>
-							<h1 style="color: black;">Lütfen Bilgileri Doldurun</h1>
-							<h3 style="color: black;">Eğer barınma ihtiyacınız varsa, bilgilerinizi girin.</h3>
-							<h3 style="color: black;">En yakın zamanda bir hayırsever sizi ağırlamak için arayacak.</h3>
-                            <form class="form-subscribe" method="POST" style="margin-top: 300px;">
-                                <!-- Email address input-->
-                                <div class="row">
-                                    <div class="col-auto">
-										<label style="color: black;">İsim Soyisim </label>
-                                        <input class="form-control form-control-lg" type="text" name="username" placeholder="İsim-Soyisim"/>
-                                    </div>
 
-									<div class="col-auto">
-										<label style="color: black;">Kaç Kişilik Talebiniz Var?</label>
-                                        <input class="form-control form-control-lg" type="number" name="usercount" placeholder="Kaç Kişisiniz"/>
-                                    </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="/yerarayanlar">Yer Arayanlar</a></li>
+                    <li><a href="/helpers">Yardım Edenler</a></li>
+                </ul>
+            </div>
+        </div> 
+        <div class="content">
+            <h1>Kalacak Yere İhtiyacı<br><span> Olanlara ulaşın.</span> <br>Bu zor zamanda</h1>
+            <p class="par">barınma, ısınma, yemek ve psikolojik desteğe ihtiyacı<br> olan kardeşlerimiz için yardım eli uzatabilirsin. <br>
+				İster maddi yardım ile onlara bir ev açalım, <br>istersek de direkt kendi evimizde, bir odamızda,<br> bir kanepemizde
+				kardeşlerimizi<br> açıkta kalmaktan koruyalım. #şuandeğilsenezaman
+			</p>
+			<p class="parr" ><u>Önemli Bilgilendirme: Bu websitesi; kalacak yer arayanlarla, <br>onları barındırabilecek kişileri<br>
+				 bulmalarına aracılık
+				 edilmesi amacıyla oluşturuldu. <br>Bu sitede kalacak yer arayanlarla onları kabul edecek<br>  kişilerin seçilmesinde 
+				 eleme yapılmasında vb. gibi <br>güvenlik katmanlarında kalacakyerlazım.com'un<br>  bir dahli bulunmamaktadır. 
+				 Taraflar kendi istek ve rızalarına dayalı şekilde seçimi <br>  kabul edip veya reddeceklerdir.
+				Afet durumu için hızlı şekilde geliştirilmiş bir sosyal proje olup,<br>  bu websiteye bilgiler girildiği andan itibaren, 
+				doğan veya <br> doğabilecek zararlardan tarafımız sorumlu tutulmayacaktır.
+				kalacakyerlazım.com - 2023
+			</u></p>
 
-									<div class="col-auto">
-										<label style="color: black;">Telefon numaranızı giriniz</label>
-                                        <input class="form-control form-control-lg" type="tel" name="usertel" id="" minlength="11" maxlength="11" pattern="[0-9]{11}" placeholder="05301239876"/>
-                                    </div>
-
-									<div class="col-auto">
-										<label style="color: black;">Notunuz</label>
-                                        <input class="form-control form-control-lg" type="text" name="usernote" id="" maxlength="240" placeholder="İhtiyacımız.."/>
-                                    </div>
-
-									<div class="col-auto">
-										<label style="color: black;">Hangi İldesiniz?</label>
-                                        <select class="form-control form-control-lg" name="userlocation" id="">
-											<option value="ADANA">ADANA</option>
-											<option value="ADIYAMAN">ADIYAMAN</option>
-											<option value="AFYONKARAHİSAR">AFYONKARAHİSAR</option>
-											<option value="AĞRI">AĞRI</option>
-											<option value="AMASYA">AMASYA</option>
-											<option value="ANKARA">ANKARA</option>
-											<option value="ANTALYA">ANTALYA</option>
-											<option value="Ardahan">Ardahan</option>
-											<option value="Artvin">Artvin</option>
-											<option value="Aydın">Aydın</option>
-											<option value="Balıkesir">Balıkesir</option>
-											<option value="Bartın">Bartın</option>
-											<option value="Batman">Batman</option>
-											<option value="Bayburt">Bayburt</option>
-											<option value="Bilecik">Bilecik</option>
-											<option value="Bingöl">Bingöl</option>
-											<option value="Bitlis">Bitlis</option>
-											<option value="Bolu">Bolu</option>
-											<option value="Burdur">Burdur</option>
-											<option value="Bursa">Bursa</option>
-											<option value="Çanakkale">Çanakkale</option>
-											<option value="Çankırı">Çankırı</option>
-											<option value="Çorum">Çorum</option>
-											<option value="Denizli">Denizli</option>
-											<option value="Diyarbakır">Diyarbakır</option>
-											<option value="Düzce">Düzce</option>
-											<option value="Edirne">Edirne</option>
-											<option value="Elazığ">Elazığ</option>
-											<option value="Erzincan">Erzincan</option>
-											<option value="Erzurum">Erzurum</option>
-											<option value="Eskişehir">Eskişehir</option>
-											<option value="Gaziantep">Gaziantep</option>
-											<option value="Giresun">Giresun</option>
-											<option value="Gümüşhane">Gümüşhane</option>
-											<option value="Hakkari">Hakkari</option>
-											<option value="Hatay">Hatay</option>
-											<option value="Iğdır">Iğdır</option>
-											<option value="Isparta">Isparta</option>
-											<option value="İstanbul">İstanbul</option>
-											<option value="İzmir">İzmir</option>
-											<option value="Kahramanmaraş">Kahramanmaraş</option>
-											<option value="Karabük">Karabük</option>
-											<option value="Karaman">Karaman</option>
-											<option value="Kars">Kars</option>
-											<option value="Kastamonu">Kastamonu</option>
-											<option value="Kayseri">Kayseri</option>
-											<option value="Kırıkkale">Kırıkkale</option>
-											<option value="Kırklareli">Kırklareli</option>
-											<option value="Kırşehir">Kırşehir</option>
-											<option value="Kilis">Kilis</option>
-											<option value="Kocaeli">Kocaeli</option>
-											<option value="Konya">Konya</option>
-											<option value="Kütahya">Kütahya</option>
-											<option value="Malatya">Malatya</option>
-											<option value="Manisa">Manisa</option>
-											<option value="Mardin">Mardin</option>
-											<option value="Mersin">Mersin</option>
-											<option value="Muğla">Muğla</option>
-											<option value="Muş">Muş</option>
-											<option value="Nevşehir">Nevşehir</option>
-											<option value="Niğde">Niğde</option>
-											<option value="Ordu">Ordu</option>
-											<option value="Osmaniye">Osmaniye</option>
-											<option value="Rize">Rize</option>
-											<option value="Sakarya">Sakarya</option>
-											<option value="Samsun">Samsun</option>
-											<option value="Siirt">Siirt</option>
-											<option value="Sinop">Sinop</option>
-											<option value="Sivas">Sivas</option>
-											<option value="Şanlıurfa">Şanlıurfa</option>
-											<option value="Şırnak">Şırnak</option>
-											<option value="Tekirdağ">Tekirdağ</option>
-											<option value="Tokat">Tokat</option>
-											<option value="Trabzon">Trabzon</option>
-											<option value="Tunceli">Tunceli</option>
-											<option value="Uşak">Uşak</option>
-											<option value="Van">Van</option>
-											<option value="Yalova">Yalova</option>
-											<option value="Yozgat">Yozgat</option>
-											<option value="Zonguldak">Zonguldak</option>
-										</select>
-                                    </div>
-                                    <div class="col-auto">
-										<button class="btn btn-success btn-lg" type="submit">Kaydet</button>
-									</div>
-                                </div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</header>
-		<br>
-		</div>
-		<footer>
-			<div class="col-md-8" style="margin-left: 300px;">
-				<p style="font-style: italic;">
-					Bu websitesi; kalacak yer arayanlarla, onları barındırabilecek kişileri bulmalarına aracılık edilmesi amacıyla oluşturuldu. 
-					Bu sitede kalacak yer arayanlarla onları kabul edecek kişilerin seçilmesinde, eleme yapılmasında vb. gibi güvenlik katmanlarında kalacakyerlazım.com'un bir dahli bulunmamaktadır. Taraflar kendi istek ve rızalarına dayalı şekilde seçimi
-					kabul edip veya reddeceklerdir.
-					Afet durumu için hızlı şekilde geliştirilmiş bir sosyal proje olup, bu proje kullanıldığı andan itibaren, 
-					doğan veya doğabilecek zararlardan tarafımız sorumlu tutulmayacaktır.
-					kalacakyerlazım.com - 2023
-				</p>
-		</footer>
-    </body>
+                
+                <form action="" method="post">
+                    <div class="form">
+                        <h2>İhtiyaç Kaydınızı Yapın</h2>
+                        <input type="text" name="username" placeholder="İsminizi Girin">
+                        <input type="number" name="usercount" placeholder="Kaç Kişisiniz">
+                        <input type="tel" name="usertel" placeholder="Telefonunuzu Girin">
+                        <input type="text" name="usernote" placeholder="Notunuzu Ekleyin">
+                        <select class="" name="emergency" id="" placeholder="112 İhbarı">
+							<option value="112 Kaydı Yapılmadı">112 Kaydı Yapılmadı</option>
+							<option value="112 Kaydı Yapıldı">112 Kaydı Yapıldı</option>
+						</select>
+						<br>
+                        <select class="form-control form-control-lg" name="userlocation" id="" placeholder="Bulunduğnuz İli Seçin">
+							<option value="ADANA">ADANA</option>
+							<option value="ADIYAMAN">ADIYAMAN</option>
+							<option value="AFYONKARAHİSAR">AFYONKARAHİSAR</option>
+							<option value="AĞRI">AĞRI</option>
+							<option value="AMASYA">AMASYA</option>
+							<option value="ANKARA">ANKARA</option>
+							<option value="ANTALYA">ANTALYA</option>
+							<option value="Ardahan">Ardahan</option>
+							<option value="Artvin">Artvin</option>
+							<option value="Aydın">Aydın</option>
+							<option value="Balıkesir">Balıkesir</option>
+							<option value="Bartın">Bartın</option>
+							<option value="Batman">Batman</option>
+							<option value="Bayburt">Bayburt</option>
+							<option value="Bilecik">Bilecik</option>
+							<option value="Bingöl">Bingöl</option>
+							<option value="Bitlis">Bitlis</option>
+							<option value="Bolu">Bolu</option>
+							<option value="Burdur">Burdur</option>
+							<option value="Bursa">Bursa</option>
+							<option value="Çanakkale">Çanakkale</option>
+							<option value="Çankırı">Çankırı</option>
+							<option value="Çorum">Çorum</option>
+							<option value="Denizli">Denizli</option>
+							<option value="Diyarbakır">Diyarbakır</option>
+							<option value="Düzce">Düzce</option>
+							<option value="Edirne">Edirne</option>
+							<option value="Elazığ">Elazığ</option>
+							<option value="Erzincan">Erzincan</option>
+							<option value="Erzurum">Erzurum</option>
+							<option value="Eskişehir">Eskişehir</option>
+							<option value="Gaziantep">Gaziantep</option>
+							<option value="Giresun">Giresun</option>
+							<option value="Gümüşhane">Gümüşhane</option>
+							<option value="Hakkari">Hakkari</option>
+							<option value="Hatay">Hatay</option>
+							<option value="Iğdır">Iğdır</option>
+							<option value="Isparta">Isparta</option>
+							<option value="İstanbul">İstanbul</option>
+							<option value="İzmir">İzmir</option>
+							<option value="Kahramanmaraş">Kahramanmaraş</option>
+							<option value="Karabük">Karabük</option>
+							<option value="Karaman">Karaman</option>
+							<option value="Kars">Kars</option>
+							<option value="Kastamonu">Kastamonu</option>
+							<option value="Kayseri">Kayseri</option>
+							<option value="Kırıkkale">Kırıkkale</option>
+							<option value="Kırklareli">Kırklareli</option>
+							<option value="Kırşehir">Kırşehir</option>
+							<option value="Kilis">Kilis</option>
+							<option value="Kocaeli">Kocaeli</option>
+							<option value="Konya">Konya</option>
+							<option value="Kütahya">Kütahya</option>
+							<option value="Malatya">Malatya</option>
+							<option value="Manisa">Manisa</option>
+							<option value="Mardin">Mardin</option>
+							<option value="Mersin">Mersin</option>
+							<option value="Muğla">Muğla</option>
+							<option value="Muş">Muş</option>
+							<option value="Nevşehir">Nevşehir</option>
+							<option value="Niğde">Niğde</option>
+							<option value="Ordu">Ordu</option>
+							<option value="Osmaniye">Osmaniye</option>
+							<option value="Rize">Rize</option>
+							<option value="Sakarya">Sakarya</option>
+							<option value="Samsun">Samsun</option>
+							<option value="Siirt">Siirt</option>
+							<option value="Sinop">Sinop</option>
+							<option value="Sivas">Sivas</option>
+							<option value="Şanlıurfa">Şanlıurfa</option>
+							<option value="Şırnak">Şırnak</option>
+							<option value="Tekirdağ">Tekirdağ</option>
+							<option value="Tokat">Tokat</option>
+							<option value="Trabzon">Trabzon</option>
+							<option value="Tunceli">Tunceli</option>
+							<option value="Uşak">Uşak</option>
+							<option value="Van">Van</option>
+							<option value="Yalova">Yalova</option>
+							<option value="Yozgat">Yozgat</option>
+							<option value="Zonguldak">Zonguldak</option>
+						</select>
+                        <input type="submit" class="btnn" value="Listeye Ekle"></button>
+                    </div>
+                </form> 
+				
+				<form action="" method="post">
+                    <div class="yenform">
+                        <h2>Yardımlarınızı Ekleyin</h2>
+                        <input type="text" name="helpername" placeholder="İsminizi Girin">
+                        <input type="text" name="helperkind" placeholder="Yardım Türünüzü Yazın">
+                        <input type="tel" name="helpertel" placeholder="Telefonunuzu Girin">
+                        <input type="text" name="helpernote" placeholder="Notunuzu Ekleyin">
+						<br>
+                        <select class="form-control form-control-lg" name="helperlocation" id="" placeholder="Bulunduğnuz İli Seçin">
+							<option value="ADANA">ADANA</option>
+							<option value="ADIYAMAN">ADIYAMAN</option>
+							<option value="AFYONKARAHİSAR">AFYONKARAHİSAR</option>
+							<option value="AĞRI">AĞRI</option>
+							<option value="AMASYA">AMASYA</option>
+							<option value="ANKARA">ANKARA</option>
+							<option value="ANTALYA">ANTALYA</option>
+							<option value="Ardahan">Ardahan</option>
+							<option value="Artvin">Artvin</option>
+							<option value="Aydın">Aydın</option>
+							<option value="Balıkesir">Balıkesir</option>
+							<option value="Bartın">Bartın</option>
+							<option value="Batman">Batman</option>
+							<option value="Bayburt">Bayburt</option>
+							<option value="Bilecik">Bilecik</option>
+							<option value="Bingöl">Bingöl</option>
+							<option value="Bitlis">Bitlis</option>
+							<option value="Bolu">Bolu</option>
+							<option value="Burdur">Burdur</option>
+							<option value="Bursa">Bursa</option>
+							<option value="Çanakkale">Çanakkale</option>
+							<option value="Çankırı">Çankırı</option>
+							<option value="Çorum">Çorum</option>
+							<option value="Denizli">Denizli</option>
+							<option value="Diyarbakır">Diyarbakır</option>
+							<option value="Düzce">Düzce</option>
+							<option value="Edirne">Edirne</option>
+							<option value="Elazığ">Elazığ</option>
+							<option value="Erzincan">Erzincan</option>
+							<option value="Erzurum">Erzurum</option>
+							<option value="Eskişehir">Eskişehir</option>
+							<option value="Gaziantep">Gaziantep</option>
+							<option value="Giresun">Giresun</option>
+							<option value="Gümüşhane">Gümüşhane</option>
+							<option value="Hakkari">Hakkari</option>
+							<option value="Hatay">Hatay</option>
+							<option value="Iğdır">Iğdır</option>
+							<option value="Isparta">Isparta</option>
+							<option value="İstanbul">İstanbul</option>
+							<option value="İzmir">İzmir</option>
+							<option value="Kahramanmaraş">Kahramanmaraş</option>
+							<option value="Karabük">Karabük</option>
+							<option value="Karaman">Karaman</option>
+							<option value="Kars">Kars</option>
+							<option value="Kastamonu">Kastamonu</option>
+							<option value="Kayseri">Kayseri</option>
+							<option value="Kırıkkale">Kırıkkale</option>
+							<option value="Kırklareli">Kırklareli</option>
+							<option value="Kırşehir">Kırşehir</option>
+							<option value="Kilis">Kilis</option>
+							<option value="Kocaeli">Kocaeli</option>
+							<option value="Konya">Konya</option>
+							<option value="Kütahya">Kütahya</option>
+							<option value="Malatya">Malatya</option>
+							<option value="Manisa">Manisa</option>
+							<option value="Mardin">Mardin</option>
+							<option value="Mersin">Mersin</option>
+							<option value="Muğla">Muğla</option>
+							<option value="Muş">Muş</option>
+							<option value="Nevşehir">Nevşehir</option>
+							<option value="Niğde">Niğde</option>
+							<option value="Ordu">Ordu</option>
+							<option value="Osmaniye">Osmaniye</option>
+							<option value="Rize">Rize</option>
+							<option value="Sakarya">Sakarya</option>
+							<option value="Samsun">Samsun</option>
+							<option value="Siirt">Siirt</option>
+							<option value="Sinop">Sinop</option>
+							<option value="Sivas">Sivas</option>
+							<option value="Şanlıurfa">Şanlıurfa</option>
+							<option value="Şırnak">Şırnak</option>
+							<option value="Tekirdağ">Tekirdağ</option>
+							<option value="Tokat">Tokat</option>
+							<option value="Trabzon">Trabzon</option>
+							<option value="Tunceli">Tunceli</option>
+							<option value="Uşak">Uşak</option>
+							<option value="Van">Van</option>
+							<option value="Yalova">Yalova</option>
+							<option value="Yozgat">Yozgat</option>
+							<option value="Zonguldak">Zonguldak</option>
+						</select>
+                        <input type="submit" class="btnn" value="Listeye Ekle"></button>
+                    </div>
+                </form> 
+            </div>
+                </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <footer>
+        <p class="footer">2023 kalacakyerlazim.com – bize ulaşın <a href="#">Twitter</a></p>
+    </footer>
+</body>
 </html>
